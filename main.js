@@ -30,8 +30,15 @@ var ajaxCall = (key, url, prompt) => {
                 resolve({ response, status, xhr });
             },
             error: function (xhr, status, error) {
-                console.error(`Error: ${xhr.status} - ${xhr.responseText}`);
-                reject(new Error(`XHR error: ${xhr.status} - ${xhr.responseText}`));
+                try {
+                    const errorResponse = JSON.parse(xhr.responseText);
+                    const errorMessage = errorResponse.error.message;
+                    console.error(`Error ${xhr.status}: ${errorMessage}`);
+                    reject(new Error(`Error ${xhr.status}: ${errorMessage}`));
+                } catch (e) {
+                    console.error('Failed to parse error response', e);
+                    reject(new Error('Failed to parse error response'));
+                }
             },
         });
     });
