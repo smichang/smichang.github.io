@@ -3,7 +3,7 @@ var ajaxCall = (key, url, prompt) => {
         $.ajax({
             url: url,
             type: "POST",
-            dataType: "json",
+            contentType: 'application/json',
             data: JSON.stringify(
                 {
                 	"messages": [{
@@ -63,7 +63,8 @@ const url = "https://pcg-sap-gai-poc.openai.azure.com/openai/deployments/PCG-SAP
                 return response.choices[0].message.content;
             } catch (error) {
                 console.error('Error in post method:', error);
-                throw error;
+                return error;
+                //throw error;
             }
         }
         connectedCallback() {
