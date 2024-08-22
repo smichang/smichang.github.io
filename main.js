@@ -11,12 +11,9 @@ var ajaxCall = (key, url, prompt) => {
                 			"content": "You are a professional report analyst who is good at interpreting dimensions, making statistics within the scope of the provided information, and can answer various statistical information. Your answer needs to be based on the data in the report, and you should not generate non-existent statistical information on your own."
                 		},
                 		{
-                			"role": "user",
-                			"content": [{
-                				"type": "text",
-                				"text": prompt
-                			}]
-                		}
+                            "role": "user",
+                            "content": prompt 
+                        }
                 	],
                 	"max_tokens": 900,
                 	"n": 1,
@@ -33,7 +30,7 @@ var ajaxCall = (key, url, prompt) => {
                 resolve({ response, status, xhr });
             },
             error: function (xhr, status, error) {
-                console.error('Error:', error); // Log the actual error
+                console.error(`Error: ${xhr.status} - ${xhr.responseText}`);
                 reject(new Error(`XHR error: ${xhr.status}`));
             },
         });
