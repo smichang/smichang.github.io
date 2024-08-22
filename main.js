@@ -4,22 +4,26 @@ var ajaxCall = (key, url, prompt) => {
             url: url,
             type: "POST",
             dataType: "json",
-            data: JSON.stringify({
-                messages: [
+            data: JSON.stringify(
                 {
-                    role: "system",
-                    content: "You are a professional report analyst who is good at interpreting dimensions, making statistics within the scope of the provided information, and can answer various statistical information. Your answer needs to be based on the data in the report, and you should not generate non-existent statistical information on your own."
-                },
-                {
-                    role: "user",
-                    content: [{ type: "text", text: prompt }]
+                	"messages": [{
+                			"role": "system",
+                			"content": "You are a professional report analyst who is good at interpreting dimensions, making statistics within the scope of the provided information, and can answer various statistical information. Your answer needs to be based on the data in the report, and you should not generate non-existent statistical information on your own."
+                		},
+                		{
+                			"role": "user",
+                			"content": [{
+                				"type": "text",
+                				"text": prompt
+                			}]
+                		}
+                	],
+                	"max_tokens": 900,
+                	"n": 1,
+                	"top_p": 0.95,
+                	"temperature": 0.7
                 }
-                          ],
-                max_tokens: 1000,
-                n: 1,
-                top_p: 0.95,
-                temperature: 0.7,
-            }),
+            ),
             headers: {
                 "Content-Type": "application/json",
                 "api-key": key,
