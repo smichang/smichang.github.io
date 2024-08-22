@@ -31,7 +31,7 @@ var ajaxCall = (key, url, prompt) => {
             },
             error: function (xhr, status, error) {
                 console.error(`Error: ${xhr.status} - ${xhr.responseText}`);
-                reject(new Error(`XHR error: ${xhr.status}`));
+                reject(new Error(`XHR error: ${xhr.status} - ${xhr.responseText}`));
             },
         });
     });
