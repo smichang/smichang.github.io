@@ -6,10 +6,7 @@ var ajaxCall = (key, url, prompt) => {
             contentType: 'application/json',
             data: JSON.stringify(
                 {
-                	"messages": [{
-                			"role": "system",
-                			"content": "You are a professional report analyst who is good at interpreting dimensions, making statistics within the scope of the provided information, and can answer various statistical information. Your answer needs to be based on the data in the report, and you should not generate non-existent statistical information on your own."
-                		},
+                	"messages": [
                 		{
                             "role": "user",
                             "content": prompt 
