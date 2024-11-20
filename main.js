@@ -14,8 +14,8 @@ var ajaxCall = (key, url, prompt) => {
                 	],
                 	"max_tokens": 4096,
                 	"n": 1,
-                	"top_p": 0.95,
-                	"temperature": 0.7
+                	"top_p": 1,
+                	"temperature": 0
                 }
             ),
             headers: {
