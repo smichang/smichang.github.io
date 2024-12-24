@@ -12,7 +12,7 @@ var ajaxCall = (key, url, prompt) => {
                             "content": prompt 
                         }
                 	],
-                	"max_tokens": 10240,
+                	"max_tokens": 4096,
                 	"n": 1,
                 	"top_p": 1,
                 	"temperature": 0
