@@ -61,7 +61,7 @@ const url = "https://pcg-sap-gai-poc.openai.azure.com/openai/deployments/PCG-SAP
             try {
                 const { response } = await ajaxCall(apiKey, `${url}/${endpoint}`, prompt);
                 // console.log(response.choices[0].message.content);
-                console.log("token_usage(prompt+completion): " + response.usage.prompt_tokens + " + " + response.usage.completion_tokens + " = " + response.usage.total_tokens);
+                // console.log("token_usage(prompt+completion): " + response.usage.prompt_tokens + " + " + response.usage.completion_tokens + " = " + response.usage.total_tokens);
                 return response.choices[0].message.content;
             } catch (error) {
                 console.error('Error in post method:', error);
